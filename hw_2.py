@@ -89,4 +89,50 @@ if new3_int < new4_int:
 else:
     print('new4_int')
 
+# 5) Реализовать 9 варианта сравнения Float переменных с операторами >, <, >=, <=, !=. Pезультаты весвести в консоль.
+
+if new_float > new2_float:
+    print('new_float')
+else:
+    print('new2_float')
+
+if new_float < new2_float:
+    print('new_float')
+else:
+    print('new2_float')
+
+if new_float >= new2_float:
+    print('new_float')
+else:
+    print('new2_float')
+
+if new_float <= new2_float:
+    print('new_float')
+else:
+    print('new2_float')
+
+if new_float != new2_float:
+    print('new_float')
+else:
+    print('new2_float')
+
+if new2_float > new3_float:
+    print('new2_float')
+else:
+    print('new3_float')
+
+if new2_float < new3_float:
+    print('new2_float')
+else:
+    print('new3_float')
+
+if new2_float >= new3_float:
+    print('new2_float')
+else:
+    print('new3_float')
+
+if new2_float <= new3_float:
+    print('new2_float')
+else:
+    print('new3_float')
 
