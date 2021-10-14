@@ -136,3 +136,26 @@ if new2_float <= new3_float:
 else:
     print('new3_float')
 
+# 6) Реализовать 10 варианта сравнения int переменных с операторами >, <, >=, <=, != и условными выражениями (end, or, not). Pезультаты весвести в консоль.
+
+if new_int > 0  and new3_int < 100:
+    c = new_int + new3_int
+    print(c)
+else:
+    print('false')
+
+if new_int >= 0 or new2_int <= 13:
+    sum_new_and_new2 = new2_int + new_int
+    print(sum_new_and_new2)
+else:
+    print('false')
+
+if new_int < new2_int and new2_int > new3_int or (not new4_int > new_int):
+    sum_new = new_int + new2_int + new3_int + new4_int
+    print(sum_new)
+
+if new_int > new2_int and new2_int > new3_int and new3_int > new4_int:
+    print('true')
+else:
+    print('false')
+
