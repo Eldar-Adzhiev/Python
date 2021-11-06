@@ -1,4 +1,4 @@
-# Python Python HW 4 Cycles
+# Python HW 4 Cycles
 
 Цилы While
 Создать переменную count со значением 0
