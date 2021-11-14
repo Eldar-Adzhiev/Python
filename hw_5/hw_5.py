@@ -39,19 +39,33 @@ list_1 = list(range(71))
 # print(len(list))
 
 # Написать скрипт который в создаст список целых рандомных чисел.
-import random
-
-list_random = random.sample(range(100),70)
-print(list_random)
+# import random
+#
+# list_random = random.sample(range(100),70)
+# print(list_random)
 
 # Написать функцию которая, получив на вход любой из выше созданных списков, разобьёт его списки по 5 элементов.
-def chunkedList (list_name, chunked_size):
-    chunked_list = list()
-    for i in range(0, len(list_name), chunked_size):
-        chunked_list.append(list_name[i:i + chunked_size])
-    print(chunked_list)
-
-
-chunkedList(list_random,5)
+# def chunkedList (list_name, chunked_size):
+#     chunked_list = list()
+#     for i in range(0, len(list_name), chunked_size):
+#         chunked_list.append(list_name[i:i + chunked_size])
+#     print(chunked_list)
+#
+#
+# chunkedList(list_random,5)
 
 # Написать функцию которая, получив на вход список целых чисел, вернёт 2 списка, список чётных и список нечётных чисел.
+def output_of_even_and_odd_numbers(list_name):
+    list_of_odd_numbers = []
+    for i in list_name:
+        if i % 2==1:
+            list_of_odd_numbers.append(i)
+    print(list_of_odd_numbers)
+    list_of_even_numbers = []
+    for k in list_name:
+        if k % 2==0:
+            list_of_even_numbers.append(k)
+    print(list_of_even_numbers)
+
+
+output_of_even_and_odd_numbers(list_1)
