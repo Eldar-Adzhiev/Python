@@ -27,23 +27,54 @@ from pprint import pprint
 
 file_path = Path("python_snippets/voyna-i-mir.txt.zip").resolve()
 
-# zip_file = zipfile.ZipFile(file_path)
-# print([text_file.filename for text_file in zip_file.infolist()])
-#
-# def unzip_file(file_path):
-#     with zipfile.ZipFile(file_path) as myzip:
-#         with myzip.open('voyna-i-mir.txt') as file:
-#             for line in file.read().decode('cp1251'):
-#                 print(line)
-#
-# unzip_file(file_path)
+
+class CharStat:
+
+    def __init__(self, file_path, file_name):
+        self.file_path = file_path
+        self.file_name = file_name
+        self.char_dict = {}
+
+    def _unzip_file(self):
+        with zipfile.ZipFile(self.file_path) as myzip:
+            myzip.extract(self.file_name)
+
+    def _count_of_letters(self):
+        with open(self.file_name, encoding='1251') as file:
+            for line in file:
+                for char in line:
+                    if char.isalpha():
+                        if char in self.char_dict:
+                            self.char_dict[char] += 1
+                        else:
+                            self.char_dict[char] = 1
+
+    def _print_header(self):
+        print(f'')
+        print('+', f'{chr(45):-^9}', '+', f'{chr(45):-^10}', '+', sep='')
+        print('|', '  Буква  ', '|', '  Кол-во  ', '|', sep='')
+        print('+', f'{chr(45):-^9}', '+', f'{chr(45):-^10}', '+', sep='')
+
+    def _print_body(self):
+        for char, cnt in sorted(self.char_dict.items()):
+            print('|', f'{char: ^9}', '|', f'{cnt: ^10}', '|', sep='')
+
+    def _print_result(self):
+        print('+', f'{chr(45):-^9}', '+', f'{chr(45):-^10}', '+', sep='')
+        print('|', '  Итого  ', '|', f'{sum(self.char_dict.values()): ^10}', '|', sep='')
+        print('+', f'{chr(45):-^9}', '+', f'{chr(45):-^10}', '+', sep='')
+
+    def char_stat(self):
+        self._unzip_file()
+        self._count_of_letters()
+        self._print_header()
+        self._print_body()
+        self._print_result()
+
+read_file = CharStat(file_path, 'voyna-i-mir.txt')
+read_file.char_stat()
 
 
-# def read_file_from_zip_archive(file_path, file_name):
-#     with zipfile.ZipFile(file_path) as myzip:
-#         with myzip.open(file_name) as file:
-#             for char in file.read().decode('cp1251'):
-#                 print(char)
 
 def read_file_from_zip_archive(file_path, file_name):
     char_dict = {}
@@ -66,11 +97,6 @@ def read_file_from_zip_archive(file_path, file_name):
     for value in char_dict.values():
         value_count += value
     pprint(f"| {'Итого':^10} | {value_count:^10}|")
-
-
-
-
-read_file_from_zip_archive(file_path, 'voyna-i-mir.txt')
 
 # После выполнения первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
