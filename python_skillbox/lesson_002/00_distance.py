@@ -36,7 +36,3 @@ distances['Paris']['Paris'] = london_paris
 
 
 pprint(distances)
-
-
-
-
